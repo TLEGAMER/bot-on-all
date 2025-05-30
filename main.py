@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import os
+from keep_alive import keep_alive  # ✅ เพิ่มบรรทัดนี้
 
 # กำหนด Channel IDs
 VOICE_CHANNEL_ID = 1375227595741855825
@@ -58,5 +59,8 @@ async def run_all_bots():
             tasks.append(bot.start(token))
     await asyncio.gather(*tasks)
 
-# เริ่มรันทุกบอท
+# ✅ เรียกใช้งาน Keep-alive server
+keep_alive()
+
+# ✅ เริ่มรันทุกบอท
 asyncio.run(run_all_bots())
